@@ -1,11 +1,16 @@
+const mongoose=require('mongoose')
+const ObjectId=mongoose.Schema.Types.ObjectId
+
+
 const collegeSchema = new mongoose.Schema(
     {
-        name: {
+        Name: {
             type: String,
             unique: true,
         },
         fullName:
         {
+            type: String,
             required: true
         },
         logoLink: {
@@ -20,4 +25,4 @@ const collegeSchema = new mongoose.Schema(
     { timestamps: true });
 
 
-    module.exports = mongoose.model('College', CollegeSchema)
+    module.exports = mongoose.model('college', collegeSchema)
