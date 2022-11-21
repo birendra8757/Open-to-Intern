@@ -55,10 +55,12 @@ const createCollege = async function (req, res) {
 
             return res.status(201).send({ status: true, data: finalData });
         
-    catch (err) {
+         } 
+        }catch (err) {
             return res.status(500).send({ error: err.message, status: false });
         }
     }
+
 
 //********************************************* */
 
