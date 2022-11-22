@@ -1,13 +1,15 @@
-const CollegeController = require ("../Controller/CollegeController")
-const InternController= require("../Controller/InternController")
-const express = require("express")
+const express = require('express');
 const router = express.Router();
+const collagecontroller = require('../controllers/collageController')
+const interncontroller = require('../controllers/InternController')
 
 
-router.post('/functionup/colleges', CollegeController.createCollege);
-router.post('/functionup/interns',InternController.createIntern );
-router.post('/functionup/collegeDetails',InternController.Getcollegedetail );
+// ===========================================================
+router.post("/functionup/colleges", collagecontroller.createcollege)
 
+router.post("/functionup/interns", interncontroller.createintern)
+
+router.get("/functionup/collegeDetails" , collagecontroller.Getcollegedetail)
 
 
 
@@ -20,4 +22,4 @@ router.all("/*", function (req, res) {
 }catch(err){res.send(err.message)}
 })
 
-module.exports = router; 
+module.exports = router;
