@@ -3,7 +3,8 @@ const internModel = require("../models/internModel");
 
 let regexValidname = /^[a-zA-Z]+([\s][a-zA-Z]+)*$/;
 let regexvalidfullName = /^[a-zA-Z]+([\s][a-zA-Z,]+)*$/;
-let regexlogoLink = "https://functionup-stg.s3.ap-south-1.amazonaws.com/thorium/iitd.png"
+let regexlogoLink = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gim;
+
 
 
 
