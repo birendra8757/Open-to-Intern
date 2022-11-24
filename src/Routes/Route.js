@@ -11,8 +11,6 @@ router.post("/functionup/interns", interncontroller.createintern)
 
 router.get("/functionup/collegeDetails" , collagecontroller.Getcollegedetail)
 
-
-
 router.all("/*", function (req, res) {
     try{
     res.status(404).send({

@@ -8,7 +8,7 @@ const collegeSchema = new mongoose.Schema(
     logoLink: {type: String,required: true },
 
     isDeleted: { type: Boolean, default: false },
-  },{ timestamps:true }
+  },{ versionKey:false }
 );
 
 module.exports = mongoose.model("Collage", collegeSchema);

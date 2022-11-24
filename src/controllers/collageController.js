@@ -44,10 +44,10 @@ const createcollege = async function (req, res) {
         .status(400)
         .send({ status: false, msg: "please enetr a valid logoLink" });
 
-    let findname = await collegeModel.findOne({ name: name });
+    let findname = await collegeModel.findOne({ name: name, });
     if (findname)
       return res
-        .status(403)
+        .status(400)
         .send({ status: false, msg: "name already exsits" });
 
     let collage = await collegeModel.create(data);
@@ -60,7 +60,6 @@ const createcollege = async function (req, res) {
 const Getcollegedetail = async (req, res) => {
   try {
     let data1 = req.query;
-
     if (Object.keys(data1).length == 0 )
       return res
         .status(400)
@@ -85,7 +84,7 @@ const Getcollegedetail = async (req, res) => {
         collegeId: collageid,
         isDeleted: false,
       })
-      .select({ _id: 0, isDeleted: 0 });
+      .select({ _id: 0, isDeleted: 0 ,createdAt:0,updatedAt:0,__v:0 });
     if (!interns)
       return res
         .status(404)
@@ -93,14 +92,14 @@ const Getcollegedetail = async (req, res) => {
 
     let final = await collegeModel
       .findOne({ name: data, isDeleted: false })
-      .select({ _id: 0, isDeleted: 0 });
+      .select({ _id: 0, isDeleted: 0,createdAt:0,updatedAt:0,__v:0 });
 
     final = JSON.parse(JSON.stringify(final));
     final.interns = interns;
 
     res.status(200).send({ status: true, Data: final });
-  } catch (error) {
-    res.status(500).send({ status: false, msg: error.message });
+  } catch (vikram) {
+    res.status(500).send({ status: false, msg: vikram.message });
   }
 };
 
