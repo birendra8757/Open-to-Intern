@@ -27,6 +27,7 @@ const createintern = async  (req, res)=> {
 
         let findEmail = await internModel.findOne({ email: email, isDeleted: false })
         
+        
         if (findEmail) return res.status(400).send({ status: false, msg: "email id already exists" })
 
         let findmobile = await internModel.findOne({ mobile: mobile, isDeleted: false })
