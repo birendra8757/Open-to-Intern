@@ -8,6 +8,7 @@ let regexValidNumber = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
 
 // =====================================createintern================================================
 const createintern = async  (req, res)=> {
+    res.setHeader("Access-Control-Allow-Origin","*")
     try {
         let data = req.body
         if (Object.keys(data).length == 0) return res.status(400).send({ status: false, msg: "plzz give some data" })

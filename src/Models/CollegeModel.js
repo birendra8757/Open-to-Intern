@@ -11,4 +11,4 @@ const collegeSchema = new mongoose.Schema(
   },{ versionKey:false }
 );
 
-module.exports = mongoose.model("Collage", collegeSchema);
+module.exports = mongoose.model("College", collegeSchema);

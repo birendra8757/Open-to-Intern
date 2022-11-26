@@ -30,4 +30,4 @@ const internSchema = new mongoose.Schema(
   { versionKey:false}
 );
 
-module.exports = mongoose.model("intern", internSchema);
+module.exports = mongoose.model("intern", internSchema);  

@@ -11,6 +11,8 @@ let regexlogoLink = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gim;
 
 // ==============================================createcollege==================================================
 const createcollege = async function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin','*')
+  
   try {
     let data = req.body;
     if (Object.keys(data).length == 0)
@@ -58,6 +60,7 @@ const createcollege = async function (req, res) {
 };
 // ==============================================Getcollegedetail==================================================
 const Getcollegedetail = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','*')
   try {
     let data1 = req.query;
     if (Object.keys(data1).length == 0 )
@@ -97,7 +100,7 @@ const Getcollegedetail = async (req, res) => {
     final = JSON.parse(JSON.stringify(final));
     final.interns = interns;
 
-    res.status(200).send({ status: true, Data: final });
+    res.status(200).send({ status: true, data: final });
   } catch (vikram) {
     res.status(500).send({ status: false, msg: vikram.message });
   }
